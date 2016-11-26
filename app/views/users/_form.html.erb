@@ -1,0 +1,32 @@
+
+<% unless @user.errors.full_messages.empty? %>
+   <ul>
+    <% @user.errors.full_messages.each do |e| %>
+       <li><%= e %></li>
+     <% end %>
+   </ul>
+ <% end %>
+
+<%= form_for @user do |f| %>
+ <p>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name, :required => true %>
+ </p>
+ <p>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name, :required => true %>
+ </p>
+ <p>
+  <%= f.label :email %>
+  <%= f.text_field :email, :required => true %>
+ </p>
+ <p>
+  <%= f.label :password %>
+  <%= f.password_field :password, :required => true %>
+ </p>
+ <p>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, :required => true %>
+ </p>
+ <%= f.submit %>
+<% end %>

@@ -1,0 +1,13 @@
+<h1>All Users</h1>
+
+  <ul>
+  <% @users.each do |u| %>
+    <h3> <%= link_to "#{u.first_name.capitalize} #{u.last_name.capitalize}", u %></h3>
+    <li>Email: <%= u.email %></li>
+    <li>Image: <%= u.image %></li>
+    <li>City: <%= u.city %></li>
+    <li>Country: <%= u.country %></li>
+    <li>About: <%= u.about %></li>
+  <% end %>
+  </ul>
+

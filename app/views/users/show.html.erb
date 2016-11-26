@@ -1,0 +1,18 @@
+<h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
+
+<ul>
+  <li>Email: <%= @user.email %></li>
+  <li>Image: <%= @user.image %></li>
+  <li>City: <%= @user.city %></li>
+  <li>Country: <%= @user.country %></li>
+  <li>About: <%= @user.about %></li>
+</ul>
+
+<div class="controls">
+  <% if @user == @current_user %>
+     <%= link_to "Edit User", edit_user_path(@user) %>
+     <%= link_to "Delete User", @user, :method => :delete,
+     :data => {confirm: "Are you sure?"} %>
+  <% end %>
+</div>
+
