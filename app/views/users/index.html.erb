@@ -2,6 +2,7 @@
 
   <ul>
   <% @users.each do |u| %>
+  <%= image_tag u.image %>
     <h3> <%= link_to "#{u.first_name.capitalize} #{u.last_name.capitalize}", u %></h3>
     <li>Email: <%= u.email %></li>
     <li>Image: <%= u.image %></li>

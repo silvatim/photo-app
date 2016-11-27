@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   post "/login" => "sessions#create"
   delete "/login" => "sessions#destroy"
 
-  get "/users/edit" => 'users#edit', as: 'edit_user'
-  resources :users, except: [:edit]
+  get "/users/edit" => "users#edit", as: "edit_user"
+  resources :users, except: [:edit] do
+    get "/followers" => "users#followers"
+    get "/following" => "users#following"
+  end
 
 
 end

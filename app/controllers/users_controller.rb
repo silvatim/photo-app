@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:edit, :update, :destroy, :following, :followers]
   before_action :authorise, only: [:edit, :update]
 
   def index
@@ -38,6 +38,14 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     redirect_to users_path
+  end
+
+  def following
+   @following = @user.following
+  end
+
+  def followers
+    @followers = @user.followers
   end
 
   private

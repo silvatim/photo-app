@@ -25,6 +25,8 @@
       <%= link_to "Sign Up", new_user_path %>
     <% else %>
       <%= link_to "Edit Profile", edit_user_path(@current_user) %> |
+      <%= link_to "Followers", user_followers_path(@current_user) %> |
+      <%= link_to "Following", user_following_path(@current_user) %> |
       <%= link_to "Logout #{@current_user.email}" , login_path, :method => :delete %>
     <% end %>
 

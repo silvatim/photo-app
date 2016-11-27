@@ -1,0 +1,10 @@
+
+<h1>Followers</h1>
+
+  <ul>
+  <% @followers.each do |f| %>
+  <%= image_tag f.image %>
+    <h3> <%= link_to "#{f.first_name.capitalize} #{f.last_name.capitalize}", f %></h3>
+    <li>Email: <%= f.email %></li>
+  <% end %>
+  </ul>
