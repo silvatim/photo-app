@@ -1,0 +1,7 @@
+<h1>All Galleries </h1>
+
+<% @all_galleries.each do |g| %>
+  <p>Gallery Owner: <%= g.user.first_name %></p>
+  <p>Gallery Name: <%=g.title %></p>
+  <%= image_tag g.photos.first %>
+<% end %>
