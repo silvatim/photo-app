@@ -1,18 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'photos/index'
-
-  get 'photos/new'
-
-  get 'photos/show'
-
-  get 'photos/create'
-
-  get 'photos/edit'
-
-  get 'photos/update'
-
-  get 'photos/destroy'
 
   root "pages#home"
   get "/home" => "pages#home"

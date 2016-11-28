@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :passive_relationships, source: :follower
 
   has_many :galleries, dependent: :destroy
-  has_many :photos, through: :galleries
+  has_many :photos, dependent: :destroy
 
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)

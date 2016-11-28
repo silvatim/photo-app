@@ -6,6 +6,7 @@ class CreatePhotos < ActiveRecord::Migration
       t.text :location
       t.integer :category_id
       t.text :image
+      t.integer :user_id
       t.timestamps null: false
     end
   end

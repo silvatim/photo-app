@@ -1,2 +1,7 @@
-<h1>Photos#index</h1>
-<p>Find me in app/views/photos/index.html.erb</p>
+<h1>My Photos</h1>
+
+<% @photos.each do |p| %>
+  <p>Photo Owner: <%= p.user.first_name %></p>
+  <p>Photo Name: <%=p.title %></p>
+  <%= link_to( image_tag(p.image), user_photo_path(@user, p) ) %>
+<% end %>

@@ -3,5 +3,5 @@
 <% @all_galleries.each do |g| %>
   <p>Gallery Owner: <%= g.user.first_name %></p>
   <p>Gallery Name: <%=g.title %></p>
-  <%= image_tag g.photos.first %>
+  <%= link_to( image_tag(g.photos.first.image), user_gallery_path(g.user, g) ) %>
 <% end %>
