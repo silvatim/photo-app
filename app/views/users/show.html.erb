@@ -1,4 +1,3 @@
-
  <%= image_tag @user.image %></li>
 <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
 
@@ -7,13 +6,27 @@
   <li>City: <%= @user.city %></li>
   <li>Country: <%= @user.country %></li>
   <li>About: <%= @user.about %></li>
-  <li>Followers: <%= link_to("Followers", user_followers_path(@user) ) %>
-  <li>Following: <%= link_to("Following", user_following_path(@user) ) %>
-  <li>All Photos: <%= link_to( "All Photos", user_photos_path(@user) ) %>
+  <li><%= link_to("#{@user.followers.count} Followers", followers_user_path(@user) ) %>
+  <li><%= link_to("#{@user.following.count} Following", following_user_path(@user) ) %>
+  <li><%= link_to("All Photos", user_photos_path(@user) ) %>
+    <% if @user.galleries.exists? %>
   <li>Galleries: </li>
     <% @user.galleries.each do |g| %>
-      <p><%= link_to( g.title, user_galleries_path(@user, g) ) %> </p>
-   <% end %>
+      <%= link_to( g.title, user_galleries_path(@user, g) ) %>
+    <% end %>
+
+    <% if @current_user.following?(@user) %>
+       <%= form_for(@current_user.active_relationships.find_by(followed_id: @user.id),
+         html: { method: :delete }) do |f| %>
+         <%= f.submit "Unfollow", class: "btn" %>
+       <% end %>
+    <% else %>
+      <%= form_for(@current_user.active_relationships.build) do |f| %>
+        <div><%= hidden_field_tag :followed_id, @user.id %></div>
+        <%= f.submit "Follow", class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
+  <% end %>
 </ul>
 
 <div class="controls">

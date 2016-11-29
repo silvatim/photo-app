@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   root "pages#home"
   get "/home" => "pages#home"
   get "/galleries" => "pages#galleries"
@@ -13,11 +12,14 @@ Rails.application.routes.draw do
   get "/users/edit" => "users#edit", as: "edit_user"
 
   resources :users, except: [:edit] do
-    get "/followers" => "users#followers"
-    get "/following" => "users#following"
     resources :galleries
     resources :photos
+    member do
+      get :following, :followers
+     end
   end
+
+  resources :relationships, only: [:create, :destroy]
 
 
 end

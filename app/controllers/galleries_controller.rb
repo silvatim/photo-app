@@ -1,5 +1,5 @@
 class GalleriesController < ApplicationController
- before_action :set_user, only: [:index, :show]
+ before_action :set_user, only: [:index, :show, :create]
  before_action :set_gallery, only: [:edit, :update, :destroy]
 
   def index
@@ -7,11 +7,13 @@ class GalleriesController < ApplicationController
   end
 
   def new
+    @user = @current_user
     @gallery = Gallery.new
   end
 
   def create
     @gallery = Gallery.new(gallery_params)
+    @gallery.user = @user
       if @gallery.save
         redirect_to user_galleries_path
       else

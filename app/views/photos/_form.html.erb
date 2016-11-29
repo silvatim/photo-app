@@ -7,7 +7,7 @@
    </ul>
  <% end %>
 
-<%= form_for @photo do |f| %>
+ <%= form_for [@user, @photo] do |f| %>
  <p>
   <%= f.label :title %>
   <%= f.text_field :title, :required => true %>
@@ -28,5 +28,7 @@
   <%= f.label :category_id %>
   <%= f.collection_select( :category_id, Category.all, :id, :name) %>
  </p>
+ <p>Name: <%= @user.first_name %></p>
+ <p>Id: <%= @user.id %></p>
  <%= f.submit %>
 <% end %>

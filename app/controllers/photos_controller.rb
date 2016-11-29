@@ -1,15 +1,19 @@
 class PhotosController < ApplicationController
+ before_action :set_user, only: [:index, :show, :create]
+ before_action :set_photo, only: [:edit, :update, :destroy]
+
   def index
-    @user = User.find(params[:user_id])
     @photos = @user.photos
   end
 
   def new
+    @user = @current_user
     @photo = Photo.new
   end
 
   def create
     @photo = Photo.new(photo_params)
+    @photo.user = @user
       if @photo.save
         redirect_to user_photos_path
       else
@@ -18,25 +22,33 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
     @photo = @user.photos.find(params[:id])
   end
 
-
   def edit
-    @user = @current_user
-    @photo = @user.photos.find(params[:id])
   end
 
   def update
-    @user = @current_user
-    @photo = @user.photos.find(params[:id])
-
+    @photo.update(photo_params)
+    redirect_to @photo
   end
 
   def destroy
-    @user = @current_user
-    @photo = @user.photos.find(params[:id])
     @photo.destroy
+    redirect_to user_photos_path(@current_user)
+  end
+
+  private
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
+  def set_photo
+    @photo = @current_user.photos.find(params[:id])
+  end
+
+  def photo_params
+    params.require(:photo).permit(:title, :image, :description, :location, :user_id, :category_id)
   end
 end

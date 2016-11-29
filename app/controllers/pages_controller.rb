@@ -8,7 +8,7 @@ class PagesController < ApplicationController
   end
 
   def photos
-    @all_photos = Photo.all
+   @all_photos = Photo.all
   end
 
 end

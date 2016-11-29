@@ -7,6 +7,8 @@
 #  description :text
 #  location    :text
 #  category_id :integer
+#  image       :text
+#  user_id     :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
