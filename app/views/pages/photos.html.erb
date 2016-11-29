@@ -3,7 +3,11 @@
 <%= render 'tags' %>
 
 <% @all_photos.each do |p| %>
-  <p>Photo Owner: <%= p.user.first_name %></p>
-  <p>Photo Name: <%=p.title %></p>
-  <%= link_to( image_tag(p.image), user_photo_path( p.user, p) ) %>
+  <div class="row">
+    <div class="col s4">
+      <p>Photo Owner: <%= p.user.first_name %></p>
+      <p>Photo Name: <%=p.title %></p>
+      <%= link_to( image_tag(p.image), user_photo_path( p.user, p) ) %>
+    </div>
+  </div>
 <% end %>

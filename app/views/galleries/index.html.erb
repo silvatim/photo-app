@@ -1,5 +1,7 @@
 <h1><%= @user.first_name%>'s Galleries</h1>
 
+<%= link_to "Add New Gallery", new_user_gallery_path(@current_user) %>
+
 <% @galleries.each do |g| %>
   <p>Gallery Owner: <%= g.user.first_name %></p>
   <p>Gallery Name: <%=link_to g.title, user_gallery_path(@user, g) %></p>
