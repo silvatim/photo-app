@@ -3,4 +3,8 @@
 <%= image_tag @photo.image %>
 <p>Photo Owner:<%= @photo.user.first_name %></p>
 
-
+<% if @current_user == @user %>
+  <%= link_to "Edit Photograph", edit_user_photo_path(@user, @photo) %>
+  <%= link_to "Delete Photograph", user_photo_path(@user, @photo), :method => :delete,
+   :data => {confirm: "Are you sure?"} %>
+ <% end %>

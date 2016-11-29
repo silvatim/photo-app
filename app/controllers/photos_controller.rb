@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
- before_action :set_user, only: [:index, :show, :create]
+ before_action :set_user, only: [:index, :show, :create, :edit, :update]
  before_action :set_photo, only: [:edit, :update, :destroy]
 
   def index
@@ -30,7 +30,7 @@ class PhotosController < ApplicationController
 
   def update
     @photo.update(photo_params)
-    redirect_to @photo
+    redirect_to user_photo_path(@user, @photo)
   end
 
   def destroy

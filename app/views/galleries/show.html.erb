@@ -1,5 +1,12 @@
 <h1><%= @gallery.title %></h1>
-<%= link_to "Add Photo", new_user_photo_path(@user) %>
+
+<% if @current_user == @user %>
+  <%= link_to "Delete Gallery", user_gallery_path(@user, @gallery), :method => :delete,
+    :data => {confirm: "Are you sure?"} %>
+ <%= link_to "Edit Gallery", edit_user_gallery_path(@user, @gallery) %>
+ <%= link_to "Add Photo to Gallery", new_user_photo_path(@user) %>
+<% end %>
+
 <% @gallery.photos.each do |p| %>
   <p><%= p.title %></p>
   <p><%= link_to( image_tag(p.image), user_photo_path(@user, p) ) %></p>

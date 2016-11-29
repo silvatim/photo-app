@@ -1,5 +1,5 @@
 class GalleriesController < ApplicationController
- before_action :set_user, only: [:index, :show, :create]
+ before_action :set_user, only: [:index, :show, :create, :edit, :update]
  before_action :set_gallery, only: [:edit, :update, :destroy]
 
   def index
@@ -29,10 +29,13 @@ class GalleriesController < ApplicationController
   end
 
   def update
+    @gallery.update(gallery_params)
+    redirect_to user_gallery_path(@user, @gallery)
   end
 
   def destroy
     @gallery.destroy
+    redirect_to user_galleries_path(@user)
   end
 
   private
@@ -42,7 +45,8 @@ class GalleriesController < ApplicationController
   end
 
   def set_gallery
-    @gallery = @current_user.galleries.find(params[:id])
+    @user = @current_user
+    @gallery = @user.galleries.find(params[:id])
   end
 
   def gallery_params

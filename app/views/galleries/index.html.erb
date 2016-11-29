@@ -1,8 +1,8 @@
-<h1>My Gallery</h1>
+<h1><%= @user.first_name%>'s Galleries</h1>
 
 <% @galleries.each do |g| %>
   <p>Gallery Owner: <%= g.user.first_name %></p>
-  <p>Gallery Name: <%=g.title %></p>
+  <p>Gallery Name: <%=link_to g.title, user_gallery_path(@user, g) %></p>
   <% if g.photos.exists? %>
     <%= link_to( image_tag(g.photos.first.image), user_gallery_path(@user, g) ) %>
   <% end %>
