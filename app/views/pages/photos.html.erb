@@ -1,5 +1,7 @@
 <h1>All Photos </h1>
 
+<%= render 'tags' %>
+
 <% @all_photos.each do |p| %>
   <p>Photo Owner: <%= p.user.first_name %></p>
   <p>Photo Name: <%=p.title %></p>

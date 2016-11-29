@@ -6,44 +6,20 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+ <body>
 
-   <% if flash[:success] %>
-      <h5><%= flash[:success] %></h5>
-    <% end %>
-    <% if flash[:error] %>
-      <h5><%= flash[:error] %></h5>
-    <% end %>
+   <%= render 'layouts/nav' %>
+   <%= render 'layouts/flash' %>
 
-  <h1>Photo App</h1>
-
-    <nav>
-      <%= link_to "Home", root_path %> |
-      <%= link_to "All Users", users_path %> |
-    <% unless @current_user.present? %>
-      <%= link_to "Login", login_path %> |
-      <%= link_to "Sign Up", new_user_path %>
-    <% else %>
-      <%= link_to "My Profile", user_path(@current_user) %> |
-      <%= link_to "Followers", followers_user_path(@current_user) %> |
-      <%= link_to "Following", following_user_path(@current_user) %> |
-      <%= link_to "Galleries", galleries_path %> |
-      <%= link_to "Photos", photos_path %> |
-      <%= link_to "My Galleries", user_galleries_path(@current_user) %> |
-      <%= link_to "My Photos", user_photos_path(@current_user) %> |
-      <%= link_to "Add New Photo", new_user_photo_path(@current_user) %> |
-      <%= link_to "Add New Gallery", new_user_gallery_path(@current_user) %>
-      <%= link_to "Logout #{@current_user.email}" , login_path, :method => :delete %>
-    <% end %>
-
-    </nav>
-    <% if @current_user.present? %>
+   <% if @current_user.present? %>
       <span>You are logged in as <%= @current_user.email %></span>
     <% end %>
 
-    <div class="container">
+ <h1>Photo App</h1>
+
+     <div class="container">
       <%= yield %>
     </div>
 
-</body>
+ </body>
 </html>

@@ -8,7 +8,12 @@ class PagesController < ApplicationController
   end
 
   def photos
-   @all_photos = Photo.all
+    if params[:tag]
+      @all_photos = Photo.tagged_with(params[:tag])
+    else
+      @all_photos = Photo.all
+    end
   end
+
 
 end

@@ -1,6 +1,6 @@
 <h1><%= @gallery.title %></h1>
 
-<% if @current_user == @user %>
+<% if current_user?(@user) %>
   <%= link_to "Delete Gallery", user_gallery_path(@user, @gallery), :method => :delete,
     :data => {confirm: "Are you sure?"} %>
  <%= link_to "Edit Gallery", edit_user_gallery_path(@user, @gallery) %>

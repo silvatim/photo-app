@@ -14,6 +14,7 @@
 #
 
 class Photo < ActiveRecord::Base
+  acts_as_taggable
   has_and_belongs_to_many :galleries
   belongs_to :user
   belongs_to :category

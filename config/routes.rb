@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   delete "/login" => "sessions#destroy"
 
   get "/users/edit" => "users#edit", as: "edit_user"
-
+  get "/tag/:tag" => "pages#photos", as: :tag
   resources :users, except: [:edit] do
     resources :galleries
     resources :photos
