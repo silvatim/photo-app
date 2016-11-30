@@ -1,11 +1,16 @@
-<h1>All Users</h1>
+<div class="container">
+<h3>All Users</h3>
 
-  <ul>
-  <% @users.each do |u| %>
-  <%= image_tag u.image, class:"circle profile" %>
-    <h5> <%= link_to "#{u.first_name.capitalize} #{u.last_name.capitalize}", u %></h5>
-    <li>Email: <%= u.email %></li>
-    <li>City: <%= u.city %></li>
+<div class="row">
+<% @users.each do |u| %>
+  <div class="col s1">
+         <p><%= image_tag u.image, class:"circle profile" %></p>
+     </div>
+     <div class="col s11">
+       <h5> <%= link_to "#{full_name(u)}", u %></h5>
+        <p><strong>Email:</strong> <%= u.email %></p>
+        <p><strong>Country: </strong> <%= u.country %></p>
+  </div>
   <% end %>
-  </ul>
-
+</div>
+</div>

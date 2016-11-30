@@ -1,9 +1,15 @@
-<h1>All Galleries </h1>
+<h3 class="center">All Galleries </h3>
 
+<div class="row">
 <% @all_galleries.each do |g| %>
-  <p>Gallery Owner: <%= g.user.first_name %></p>
-  <p>Gallery Name: <%=g.title %></p>
-  <% if g.photos.exists? %>
-    <%= link_to( image_tag(g.photos.first.image), user_gallery_path(g.user, g) ) %>
-  <% end %>
-<% end %>
+   <div class="col s4">
+    <div class="card">
+      <div class="card-image">
+      <%= link_to( image_tag(g.photos.first.image), user_gallery_path( g.user, g) ) %>
+      <span class="card-title"><%= "#{g.title} - #{full_name(g.user)}" %></span>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+

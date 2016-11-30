@@ -1,13 +1,15 @@
-<h1><%= @photo.title %></h1>
+<h3><%= @photo.title %></h3>
 
 <%= cl_image_tag @photo.image %>
  <p>Photo Owner: <%= link_to @photo.user.first_name, user_path(@photo.user) %></p>
- <p><%= link_to "Back to Gallery", "#" %></p>
+ <p><%= link_to "Back to Gallery", "#", class:"waves-effect waves-light btn"  %></p>
  <p><%= tags(@photo) %></p>
 
 
 <% if current_user?(@user) %>
-  <%= link_to "Edit Photograph", edit_user_photo_path(@user, @photo) %>
-  <%= link_to "Delete Photograph", user_photo_path(@user, @photo), :method => :delete,
+  <%= link_to "Edit Photograph", edit_user_photo_path(@user, @photo), class:"waves-effect waves-light btn" %>
+  <%= link_to "Delete Photograph", user_photo_path(@user, @photo), class:"waves-effect waves-light btn", :method => :delete,
    :data => {confirm: "Are you sure?"} %>
  <% end %>
+
+

@@ -1,11 +1,22 @@
-<h1><%= @user.first_name%>'s Galleries</h1>
-
-<%= link_to "Add New Gallery", new_user_gallery_path(@current_user) %>
-
-<% @galleries.each do |g| %>
-  <p>Gallery Owner: <%= g.user.first_name %></p>
-  <p>Gallery Name: <%=link_to g.title, user_gallery_path(@user, g) %></p>
-  <% if g.photos.exists? %>
-    <%= link_to( image_tag(g.photos.first.image), user_gallery_path(@user, g) ) %>
-  <% end %>
+<div class="center">
+  <h3><%= full_name(@user)%>'s Galleries</h3>
+  <% if current_user?(@user) %>
+    <p><%= link_to "Add New Gallery", new_user_gallery_path(@current_user), class:"waves-effects waves-light btn" %></p>
 <% end %>
+</div>
+
+<div class="row">
+<% @galleries.each do |g| %>
+   <div class="col s4">
+    <div class="card">
+      <div class="card-image">
+      <%= link_to( image_tag(g.photos.first.image), user_gallery_path( @user, g) ) %>
+      <span class="card-title"><%= "#{g.title} - #{full_name(@user)}" %></span>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+
+
+

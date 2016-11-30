@@ -1,12 +1,20 @@
-<h1><%= @user.first_name%>'s Photos</h1>
-
-<%= link_to "Add New Photo", new_user_photo_path(@current_user) %>
-
-<% @photos.each do |p| %>
-  <div class="row">
-     <div ="col s4">
-     <p>Photo Owner: <%= p.user.first_name %></p>
-     <p>Photo Name: <%=p.title %></p>
-     <%= link_to( cl_image_tag(p.image), user_photo_path(@user, p) ) %>
-  </div>
+<div class="center">
+<h3><%= @user.first_name%>'s Photos</h3>
+<% if current_user?(@user) %>
+<p><%= link_to "Add New Photo", new_user_photo_path(@current_user), class: "waves-effect waves-light btn" %></p>
 <% end %>
+</div>
+<div class="row">
+<% @photos.each do |p| %>
+  <% if p.user %>
+   <div class="col s4">
+    <div class="card">
+      <div class="card-image">
+      <%= link_to( image_tag(p.image), user_photo_path( @user, p) ) %>
+          <span class="card-title"><%= p.title %></span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>

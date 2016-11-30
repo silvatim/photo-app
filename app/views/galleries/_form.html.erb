@@ -16,9 +16,8 @@
   <%= f.text_field :description%>
  </p>
  <p>
-  <%= f.label "Private" %>
+ <%= f.label "Private", :checked => "checked" %>
   <%= f.check_box :visibility%>
- </p>
  <%= f.submit %>
 
 <% end %>

@@ -1,11 +1,16 @@
+<div class="container">
+<h3>Followers</h3>
 
-<h1>Followers</h1>
-
-  <ul>
-  <% @followers.each do |f| %>
-    <li>
-     <%= image_tag f.image, class:"circle profile" %>
-    <h5><%= link_to "#{f.first_name.capitalize} #{f.last_name.capitalize}", f %></h5>
-    </li>
+<div class="row">
+ <% @followers.each do |f| %>
+   <div class="col s1">
+    <p><%= image_tag f.image, class:"circle profile" %></p>
+   </div>
+   <div class="col s11">
+     <h5> <%= link_to full_name(f), f %> </h5>
+     <p><strong>Email:</strong> <%= f.email %></p>
+     <p><strong>Country: </strong> <%= f.country %></p>
+   </div>
   <% end %>
-  </ul>
+</div>
+</div>

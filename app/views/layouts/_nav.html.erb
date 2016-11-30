@@ -1,3 +1,4 @@
+
 <!-- Dropdown Structure -->
   <ul id="dropdown1" class="dropdown-content">
 <% if @current_user.present? %>
@@ -11,15 +12,27 @@
     <li><%= link_to "Logout" , login_path, :method => :delete %></li>
 <% end %>
   </ul>
-<nav>
+<nav class="teal lighten-1">
   <div class"nav-wrapper">
-    <a href="#!" class="brand-logo">Logo</a>
+    <a href="#!" class="brand-logo">Maximum Exposure</a>
     <ul class="right hide-on-med-and-down">
+      <% if @current_user.present? %>
       <li>
-        <%= form_tag "/search", :method => "GET" do %>
-          <%= text_field_tag :tag %>
-        <% end %>
+    <div class="nav-wrapper">
+      <form>
+        <div class="input-field">
+          <input id="search" type="search" required placeholder="Search photos...">
+          <label for="search"><i class="material-icons">search</i>
+            <%= form_tag "/search", :method => "GET" do %>
+            <%= text_field_tag :tag %>
+            <% end %>
+          </label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+    </div>
       </li>
+    <% end %>
       <% unless @current_user.present? %>
          <li><%= link_to "Login", login_path %> </li>
          <li><%= link_to "Sign Up", new_user_path %></li>
@@ -34,3 +47,5 @@
     </ul>
   </div>
 </nav>
+
+
