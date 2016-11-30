@@ -1,6 +1,6 @@
 <h1><%= @photo.title %></h1>
 
-<%= image_tag @photo.image %>
+<%= cl_image_tag @photo.image %>
  <p>Photo Owner: <%= link_to @photo.user.first_name, user_path(@photo.user) %></p>
  <p><%= link_to "Back to Gallery", "#" %></p>
  <p><%= tags(@photo) %></p>

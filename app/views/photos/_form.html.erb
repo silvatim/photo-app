@@ -7,7 +7,7 @@
    </ul>
  <% end %>
 
- <%= form_for [@gallery, @photo] do |f| %>
+ <%= form_for([@gallery, @photo], :html => { :multipart => true }) do |f| %>
  <p>
   <%= f.label :title %>
   <%= f.text_field :title, :required => true %>
@@ -18,7 +18,7 @@
  </p>
  <p>
   <%= f.label :image %>
-  <%= f.text_field :image%>
+  <%= f.cl_image_upload :image%>
  </p>
  <p>
   <%= f.label :location %>

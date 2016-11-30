@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function () {
+$(document).on("ready turbolinks:load", function () {
   $(".dropdown-button").dropdown();
   $('select').material_select();
 });

@@ -7,6 +7,6 @@
      <div ="col s4">
      <p>Photo Owner: <%= p.user.first_name %></p>
      <p>Photo Name: <%=p.title %></p>
-     <%= link_to( image_tag(p.image), user_photo_path(@user, p) ) %>
+     <%= link_to( cl_image_tag(p.image), user_photo_path(@user, p) ) %>
   </div>
 <% end %>

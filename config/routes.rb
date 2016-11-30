@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get "/galleries/:id/photos/new" => "photos#new", :as => "new_gallery_photo"
   post "/galleries/:id/photos" => "photos#create", :as => "gallery_photos"
   get "/search" => "pages#photos"
+  post "/photos" => "photos#create"
 
   resources :relationships, only: [:create, :destroy]
 
