@@ -7,7 +7,7 @@
    </ul>
  <% end %>
 
- <%= form_for [@user, @photo] do |f| %>
+ <%= form_for [@gallery, @photo] do |f| %>
  <p>
   <%= f.label :title %>
   <%= f.text_field :title, :required => true %>

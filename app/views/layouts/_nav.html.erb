@@ -1,18 +1,18 @@
 <!-- Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
 <% if @current_user.present? %>
-<ul id="dropdown1" class="dropdown-content">
-  <li><%= link_to "My Profile", user_path(@current_user) %> </li>
-  <li><%= link_to "My Galleries", user_galleries_path(@current_user) %> </li>
-  <li><%= link_to "Manage Photos", user_photos_path(@current_user) %> </li>
-  <li class="divider"></li>
-  <li><%= link_to "Followers", followers_user_path(@current_user) %></li>
-  <li><%= link_to "Following", following_user_path(@current_user) %> </li>
-  <li class="divider"></li>
-  <li><%= link_to "Logout" , login_path, :method => :delete %></li>
-</ul>
+    <li><%= link_to "My Profile", user_path(@current_user) %> </li>
+    <li><%= link_to "My Galleries", user_galleries_path(@current_user) %> </li>
+    <li><%= link_to "Manage Photos", user_photos_path(@current_user) %> </li>
+    <li class="divider"></li>
+    <li><%= link_to "Followers", followers_user_path(@current_user) %></li>
+    <li><%= link_to "Following", following_user_path(@current_user) %> </li>
+    <li class="divider"></li>
+    <li><%= link_to "Logout" , login_path, :method => :delete %></li>
 <% end %>
+  </ul>
 <nav>
-  <div class="nav-wrapper">
+  <div class"nav-wrapper">
     <a href="#!" class="brand-logo">Logo</a>
     <ul class="right hide-on-med-and-down">
       <% unless @current_user.present? %>
@@ -30,3 +30,6 @@
     </ul>
   </div>
 </nav>
+    <%= form_tag "/search", :method => "GET" do %>
+    <%= text_field_tag :tag %>
+    <% end %>

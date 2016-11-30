@@ -4,7 +4,7 @@
   <%= link_to "Delete Gallery", user_gallery_path(@user, @gallery), :method => :delete,
     :data => {confirm: "Are you sure?"} %>
  <%= link_to "Edit Gallery", edit_user_gallery_path(@user, @gallery) %>
- <%= link_to "Add Photo to Gallery", new_user_photo_path(@user) %>
+ <%= link_to "Add Photo to Gallery", new_gallery_photo_path(@gallery) %>
 <% end %>
 
 <% @gallery.photos.each do |p| %>

@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
- before_action :set_user, only: [:index, :show, :create, :edit, :update]
+ before_action :set_user, only: [:index, :show, :edit, :update]
  before_action :set_photo, only: [:edit, :update, :destroy]
 
   def index
@@ -9,13 +9,16 @@ class PhotosController < ApplicationController
   def new
     @user = @current_user
     @photo = Photo.new
+    @gallery = Gallery.find(params[:id])
   end
 
   def create
     @photo = Photo.new(photo_params)
-    @photo.user = @user
+    @photo.user = @current_user
       if @photo.save
-        redirect_to user_photos_path
+        g = Gallery.find_by :id => params[:id]
+        g.photos << @photo
+        redirect_to user_gallery_path( @current_user.id, g.id )
       else
         render :new
       end
