@@ -1,4 +1,4 @@
-
+<div class="container">
 <% unless @photo.errors.full_messages.empty? %>
    <ul>
     <% @photo.errors.full_messages.each do |e| %>
@@ -7,18 +7,24 @@
    </ul>
  <% end %>
 
- <%= form_for([@gallery, @photo], :html => { :multipart => true }) do |f| %>
+ <%= form_for([@current_user, @photo], :html => { :multipart => true }) do |f| %>
+ <p>
+  <%= f.label :image %>
+  </p>
+  <p>
+  <%= f.cl_image_upload :image%>
+ </p>
  <p>
   <%= f.label :title %>
   <%= f.text_field :title, :required => true %>
  </p>
  <p>
-  <%= f.label :description %>
-  <%= f.text_field :description%>
+  <%= f.label :category_id %>
+  <%= f.collection_select( :category_id, Category.all, :id, :name) %>
  </p>
  <p>
-  <%= f.label :image %>
-  <%= f.cl_image_upload :image%>
+  <%= f.label :description %>
+  <%= f.text_field :description%>
  </p>
  <p>
   <%= f.label :location %>
@@ -28,9 +34,6 @@
  <%= f.label :tag_list, "Tags (seperated by commas)"%>
   <%= f.text_field :tag_list%>
  </p>
- <p>
-  <%= f.label :category_id %>
-  <%= f.collection_select( :category_id, Category.all, :id, :name) %>
- </p>
- <%= f.submit %>
+ <%= f.submit class:"waves-effect wave-light btn" %>
 <% end %>
+</div>

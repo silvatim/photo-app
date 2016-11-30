@@ -11,7 +11,7 @@
     <div class="card">
       <div class="card-image">
       <%= link_to( image_tag(g.photos.first.image), user_gallery_path( @user, g) ) %>
-      <span class="card-title"><%= "#{g.title} - #{full_name(@user)}" %></span>
+      <span class="card-title"><%= g.title %></span>
             </div>
           </div>
         </div>

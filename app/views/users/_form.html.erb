@@ -1,3 +1,4 @@
+<div class="container center">
 <% unless @user.errors.full_messages.empty? %>
    <ul>
     <% @user.errors.full_messages.each do |e| %>
@@ -5,7 +6,6 @@
      <% end %>
    </ul>
  <% end %>
-
 <%= form_for @user do |f| %>
  <p>
   <%= f.label :first_name %>
@@ -33,7 +33,9 @@
  </p>
  <p>
   <%= f.label :image %>
-  <%= f.cl_image_upload :image%>
+ </p>
+ <p>
+  <%= f.cl_image_upload :image %>
  </p>
  <p>
   <%= f.label :password %>
@@ -43,5 +45,6 @@
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation, :required => true %>
  </p>
- <%= f.submit %>
+ <%= f.submit class:"waves-effect waves-light btn" %>
 <% end %>
+</div>
