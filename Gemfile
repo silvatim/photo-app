@@ -29,6 +29,7 @@ gem 'materialize-sass'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+gem 'faker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -37,7 +38,6 @@ group :development, :test do
   gem 'byebug'
   gem 'annotate'
   gem 'pry-rails'
-  gem 'faker'
 end
 
 group :production do
