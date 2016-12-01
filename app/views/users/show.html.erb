@@ -1,10 +1,6 @@
 <div class="container center">
 
- <% if @user.image %>
  <%= cl_image_tag @user.image, class:"circle full_profile" %></li>
-<% else %>
- <%= cl_image_tag "user_placeholder.png", class:"circle full_profile" %></li>
-<% end %>
 <h3><%= full_name(@user) %></h3>
 <div class="divider"></div>
 <ul>
