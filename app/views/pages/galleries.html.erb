@@ -5,7 +5,11 @@
    <div class="col s4">
     <div class="card">
       <div class="card-image">
+        <% if gallery_photos?(g) %>
       <%= link_to( cl_image_tag(g.photos.first.image), user_gallery_path( g.user, g) ) %>
+    <% else %>
+      <%= link_to( cl_image_tag("https://www.fillmurray.com/300/300hoto-placeholder.png"), user_gallery_path( g.user, g) ) %>
+    <% end %>
       <span class="card-title"><%= "#{g.title} - #{full_name(g.user)}" %></span>
             </div>
           </div>

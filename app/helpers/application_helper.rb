@@ -8,4 +8,8 @@ module ApplicationHelper
    @current_user == user
  end
 
+ def gallery_photos?(gallery)
+    gallery.photos.count > 0
+ end
+
 end

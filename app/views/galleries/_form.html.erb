@@ -6,6 +6,7 @@
      <% end %>
    </ul>
  <% end %>
+<div class="card-panel">
 
 <%= form_for [@user, @gallery] do |f| %>
  <p>
@@ -16,11 +17,7 @@
   <%= f.label :description %>
   <%= f.text_field :description%>
  </p>
- <p>
-  <%= f.label "Private", :checked => "checked" %>
-  <%= f.check_box :visibility%>
- </p>
- <%= f.submit class:"waves-effect waves-light btn" %>
-
+ <%= f.submit class: "waves-effect waves-light btn" %>
 <% end %>
+</div>
 </div>

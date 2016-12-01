@@ -6,6 +6,8 @@
      <% end %>
    </ul>
  <% end %>
+ <div class="card-panel">
+
 <%= form_for(@user, :html => {:multipart => true}) do |f| %>
  <p>
   <%= f.label :first_name %>
@@ -47,4 +49,5 @@
  </p>
  <%= f.submit class:"waves-effect waves-light btn" %>
 <% end %>
+</div>
 </div>

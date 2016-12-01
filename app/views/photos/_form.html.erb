@@ -7,13 +7,9 @@
    </ul>
  <% end %>
 
+ <div class="card-panel">
+
  <%= form_for([@current_user, @photo], :html => { :multipart => true }) do |f| %>
- <p>
-  <%= f.label :image %>
-  </p>
-  <p>
-  <%= f.cl_image_upload :image%>
- </p>
  <p>
   <%= f.label :title %>
   <%= f.text_field :title, :required => true %>
@@ -31,9 +27,16 @@
   <%= f.text_field :location%>
  </p>
  <p>
+  <%= f.label :image %>
+  </p>
+  <p>
+  <%= f.cl_image_upload :image%>
+ </p>
+ <p>
  <%= f.label :tag_list, "Tags (seperated by commas)"%>
   <%= f.text_field :tag_list%>
  </p>
  <%= f.submit class: "waves-effect wave-light btn" %>
 <% end %>
+ </div>
 </div>
