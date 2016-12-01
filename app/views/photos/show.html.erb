@@ -7,7 +7,7 @@
 <% if tags?(@photo) %>
  <p><strong>Tags:</strong> <%= tags(@photo) %></p>
  <% end %>
- <%= link_to "Back to Gallery", "#", class:"waves-effect waves-light btn"  %>
+ <%= link_to "Back to Photos", user_photos_path(@photo.user), class:"waves-effect waves-light btn"  %>
 
 
 <% if current_user?(@user) %>

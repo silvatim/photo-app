@@ -13,21 +13,21 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.new photo_params
+    @photo = Photo.new(photo_params)
     if params[:file].present?
      req = Cloudinary::Uploader.upload(params[:file])
      @photo.image = req['public_id']
     end
     @photo.user = @current_user
 
-    if @photo.save
-      if params[:id]
-        g = Gallery.find_by :id => params[:id]
-        g.photos << @photo
-        redirect_to user_gallery_path( @current_user.id, g.id )
-      else
-        redirect_to @current_user
-      end
+	 if @photo.save
+		 if params[:id]
+			g = Gallery.find_by :id => params[:id]
+			g.photos << @photo
+			redirect_to user_gallery_path( @current_user.id, g.id )
+		else
+			redirect_to @current_user
+		end
      else
         render :new
       end
