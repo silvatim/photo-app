@@ -1,10 +1,10 @@
 nav{
- padding:0 80px;
+ padding:0 40px;
 }
 
-input[type="search"] {
-  /* or height of nav */
-}
+// input[type="search"] {
+//   /* or height of nav */
+// }
 
 .active:not(ul){
 height:62px;
@@ -25,8 +25,9 @@ body nav form i.material-icons {
 
 body nav div.input-field {
   display: inline-block;
-  color: black;
+  color: white;
   overflow: hidden;
+  width:160px;
 }
 
 ul.right, ul.right > li {

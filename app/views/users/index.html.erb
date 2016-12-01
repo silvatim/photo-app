@@ -2,15 +2,16 @@
 <h3 class="center">All Users</h3>
 
 <div class="row">
-<% @users.each do |u| %>
-    <div class="col s1 offset-s3">
-         <p><%= cl_image_tag u.image, class:"circle profile" %></p>
+    <% @users.each do |u| %>
+    <div class="col s2 offset-s3">
+       <%= cl_image_tag u.image, class:"circle profile" %>
      </div>
-     <div class="col s8">
+    <div class="col s7">
        <h5> <%= link_to "#{full_name(u)}", u %></h5>
         <p><strong>Email:</strong> <%= u.email %></p>
         <p><strong>Country: </strong> <%= u.country %></p>
-  </div>
-  <% end %>
+     </div>
+    <% end %>
+   </div>
 </div>
-</div>
+

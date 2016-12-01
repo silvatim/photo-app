@@ -1,1 +1,20 @@
 
+ul.tabs li.tab a{
+color:black;
+}
+
+ul.tabs li.tab a.active{
+color:teal;
+}
+
+ul.tabs li.tab a:hover{
+color:teal;
+}
+
+ul.tabs div.indicator{
+background-color:teal;
+}
+
+#choice{
+color:black;
+}
