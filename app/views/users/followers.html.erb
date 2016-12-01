@@ -4,7 +4,7 @@
 <div class="row">
  <% @followers.each do |f| %>
    <div class="col s1">
-    <p><%= image_tag f.image, class:"circle profile" %></p>
+    <p><%= cl_image_tag f.image, class:"circle profile" %></p>
    </div>
    <div class="col s11">
      <h5> <%= link_to full_name(f), f %> </h5>

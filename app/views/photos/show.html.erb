@@ -4,7 +4,9 @@
 
 <%= cl_image_tag @photo.image %>
 <p><strong>Photo Owner: </strong> <%= link_to @photo.user.first_name, user_path(@photo.user) %></p>
+<% if tags?(@photo) %>
  <p><strong>Tags:</strong> <%= tags(@photo) %></p>
+ <% end %>
  <%= link_to "Back to Gallery", "#", class:"waves-effect waves-light btn"  %>
 
 

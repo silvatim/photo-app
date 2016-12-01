@@ -15,5 +15,11 @@ class ApplicationController < ActionController::Base
      @current_user == user
   end
 
+  def categories
+   Category.all
+  end
+
+  helper_method :categories
   helper_method :current_user?
+
 end

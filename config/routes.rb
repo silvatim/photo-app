@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get "/users/edit" => "users#edit", as: "edit_user"
   get "/tag/:tag" => "pages#photos", as: :tag
+  get "/search/:category" => "pages#photos", as: "category"
   resources :users, except: [:edit] do
     resources :galleries
     resources :photos

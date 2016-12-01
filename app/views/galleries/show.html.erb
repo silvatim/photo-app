@@ -12,7 +12,7 @@
    <div class="col s4">
     <div class="card">
       <div class="card-image">
-      <%= link_to( image_tag(p.image), user_photo_path( @user, p) ) %>
+      <%= link_to( cl_image_tag(p.image), user_photo_path( @user, p) ) %>
       <span class="card-title"><%= "#{p.title} - #{full_name(@user)}" %></span>
             </div>
           </div>

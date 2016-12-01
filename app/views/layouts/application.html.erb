@@ -12,9 +12,7 @@
    <%= render 'layouts/nav' %>
    <%= render 'layouts/flash' %>
 
-   <% if @current_user.present? %>
-      <span>You are logged in as <%= @current_user.email %></span>
-    <% end %>
+
 
        <%= yield %>
 

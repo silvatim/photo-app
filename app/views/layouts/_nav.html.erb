@@ -1,3 +1,11 @@
+<!-- dropdown for categories -->
+  <ul id="dropdown2" class="dropdown-content">
+    <%categories.each do |c|%>
+      <li><%= link_to "#{c.name}", category_path(c) %> </li>
+
+    <!-- <li><%#= link_to "My Galleries", user_galleries_path(@current_user) %> </li> -->
+  <% end %>
+  </ul>
 
 <!-- Dropdown Structure -->
   <ul id="dropdown1" class="dropdown-content">
@@ -13,23 +21,19 @@
 <% end %>
   </ul>
 <nav class="teal lighten-1">
-  <div class"nav-wrapper">
+  <div class="nav-wrapper">
     <a href="#!" class="brand-logo">Maximum Exposure</a>
     <ul class="right hide-on-med-and-down">
       <% if @current_user.present? %>
       <li>
     <div class="nav-wrapper">
-      <form>
-        <div class="input-field">
-          <input id="search" type="search" required placeholder="Search photos...">
-          <label for="search"><i class="material-icons">search</i>
-            <%= form_tag "/search", :method => "GET" do %>
-            <%= text_field_tag :tag %>
+      <%= form_tag "/search", :method => "GET" do %>
+        <label for="search"><i class="material-icons">search</i></label>
+              <div class="input-field">
+                <%= text_field_tag :tag %>
+              </div>
             <% end %>
-          </label>
-          <i class="material-icons">close</i>
-        </div>
-      </form>
+
     </div>
       </li>
     <% end %>
@@ -38,9 +42,10 @@
          <li><%= link_to "Sign Up", new_user_path %></li>
      <% else %>
         <li><%= link_to "Home", root_path %> </li>
-        <li><%= link_to "All Users", users_path %></li>
+        <li><%= link_to "Members", users_path %></li>
          <li><%= link_to "Galleries", galleries_path %> </li>
          <li><%= link_to "Photos", photos_path %> </li>
+         <li><a class="dropdown-button" href="#!" data-activates="dropdown2">categories<i class="material-icons right">arrow_drop_down</i></a></li>
          <!-- Dropdown Trigger -->
          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%= full_name(@current_user) %><i class="material-icons right">arrow_drop_down</i></a></li>
      <% end %>

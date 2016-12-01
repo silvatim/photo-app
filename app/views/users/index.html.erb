@@ -4,7 +4,7 @@
 <div class="row">
 <% @users.each do |u| %>
     <div class="col s1 offset-s3">
-         <p><%= image_tag u.image, class:"circle profile" %></p>
+         <p><%= cl_image_tag u.image, class:"circle profile" %></p>
      </div>
      <div class="col s8">
        <h5> <%= link_to "#{full_name(u)}", u %></h5>
