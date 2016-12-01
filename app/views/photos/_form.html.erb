@@ -10,7 +10,7 @@
 
  <div class="card-panel">
 
- <%= form_for([@current_user, @photo], :html => { :multipart => true }) do |f| %>
+ <%= form_for([@gallery, @photo], :html => { :multipart => true }) do |f| %>
  <p>
   <%= f.label :title %>
   <%= f.text_field :title, :required => true %>

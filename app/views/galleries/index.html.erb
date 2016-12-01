@@ -10,11 +10,7 @@
    <div class="col s4">
     <div class="card">
       <div class="card-image">
-        <% if gallery_photos?(g) %>
-      <%= link_to( cl_image_tag(g.photos.last.image), user_gallery_path( @user, g) ) %>
-    <% else %>
-      <%= link_to( cl_image_tag('https://www.fillmurray.com/300/300.png'), user_gallery_path( @user, g) ) %>
-    <% end %>
+      <%= link_to( cl_image_tag(Photo.all.sample.image), user_gallery_path( @user, g) ) %>
       <span class="card-title"><%= g.title %></span>
             </div>
           </div>
